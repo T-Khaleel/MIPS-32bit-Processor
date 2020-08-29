@@ -1,0 +1,78 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity control is
+	
+	port (
+		instruction: in std_logic_vector (31 downto 0);
+		reset: in std_logic;
+		aluop: out std_logic_vector (1 downto 0);
+		jump_dec, regdst, regwrite,memtoreg,alusrc,beq_control,memread,memwrite : out std_logic
+	);
+end control;
+
+architecture bvr of control is
+begin
+process(instruction,reset)
+variable rformat,lw,sw,beq,jump,addi : std_logic :='0';
+variable opcode: std_logic_vector (5 downto 0);
+
+	begin
+		if(reset='1')then
+			regdst<='0';
+			regwrite<='0';
+			memtoreg<='0';
+			aluop<="00";
+			memwrite<='0';
+			memread<='0';
+			jump_dec<='0';
+			beq_control<='0';
+		else
+			opcode:=instruction(31 downto 26);
+			if(opcode = "000000")then
+				rformat:='1';
+			end if;
+			
+			if(opcode = "100011")then
+				lw:='1';
+			end if;
+			
+			if(opcode = "101011")then
+				sw:='1';
+			end if;
+			
+			if(opcode = "000100")then
+				beq:='1';
+			end if;
+			
+			if(opcode = "000010")then
+				jump:='1';
+			end if;
+			
+			if(opcode = "001000")then
+				addi:='1';
+			end if;
+			
+			regdst<=rformat;
+			
+			if(sw ='1' or lw = '1' or addi = '1' or beq ='1')then
+				alusrc<='1';
+			end if;
+			memtoreg<=lw;
+			beq_control<=beq;
+			
+			jump_dec<=jump;
+			
+			if(sw='0' or beq = '0')then
+				regwrite<='1';
+			end if;
+			memwrite<=sw;
+			memread<=lw;
+			
+			if(instruction (5 downto 0) = "100000" or instruction (5 downto 0) = "100010" or instruction (5 downto 0) = "100100")then
+					aluop<="10";
+			end if;
+		end if;
+	end process;
+end bvr;
+	

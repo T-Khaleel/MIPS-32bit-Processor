@@ -1,0 +1,32 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use work.my_components.all;
+
+entity my_package is
+port (
+jump_dec,reset,regdst,regwrite,memtoreg,alusrc,beq_control: in std_logic_vector;
+jumpaddr: out std_logic_vector (31 downto 0);
+branch_Dec: out std_logic;
+aluop: in std_logic_vector (1 downto 0);
+instruction,rs,rt,branch_addr,immediate,alu_Result,pc_out,memory_data: out std_logic_vector (31 downto 0)
+);
+end my_package;
+architecture bvr of my_package is
+signal a,bd,pc4,regrs,regrt,imm,branchad,jumpad,ar: std_logic_vector (31 downto 0);
+begin
+	
+	branchad<=branch_addr;
+	jumpad<=jump_addr;
+	bd<=branch_Dec;
+	ar<=alu_Result;
+	port map fetch(pc_out,instruction,branchad,jumpad,bd,jump_dec,clk,reset);
+		a<=instruction;
+		pc4<=pc_out;
+	port map lab9(a,memory_data,ar,regdst,regwrite,memtoreg,reset,clk,register_rs,register_rt,register_rd,jump_addr,immediate);
+	regrs<=rs;
+	regrt<=rt;
+	imm>=immediate;
+	port map execute(regrs,regrt,pc4,imm, aluop,alusrc,beq_control,clk,alu_result,branch_addr,branch_Dec);
+	
+	
+end bvr;

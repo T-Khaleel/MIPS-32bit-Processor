@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Lenovo\Desktop\sem5\execute1\simulation\qsim
+vmy_package
+Z1 !s100 j51elSQkHlTc35]cKZ95P2
+Z2 IS=LR:lmM1f7:ZTNm`BVTT1
+Z3 V]lX]f^Gjhh6iCheFjZkW_1
+Z4 dC:\Users\Lenovo\Desktop\sem5\Newfolder\simulation\qsim
+Z5 w1577045563
+Z6 8execute.vo
+Z7 Fexecute.vo
+L0 31
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -work|work|execute.vo|
+Z10 o-work work -O0
+!i10b 1
+!s85 0
+Z11 !s108 1577045568.309000
+Z12 !s107 execute.vo|
+!s101 -O0
+vmy_package_vlg_check_tst
+!i10b 1
+Z13 !s100 bF1I]X9mQ<bZWeiebBPhC3
+Z14 IGPC>S7CO3LnAzXRTYdJVh1
+Z15 Vo=fheUKg1Y`j3__K1LGN93
+R4
+Z16 w1577045558
+Z17 8Waveform8.vwf.vt
+Z18 FWaveform8.vwf.vt
+L0 59
+R8
+r1
+!s85 0
+31
+Z19 !s108 1577045568.990000
+Z20 !s107 Waveform8.vwf.vt|
+Z21 !s90 -work|work|Waveform8.vwf.vt|
+!s101 -O0
+R10
+vmy_package_vlg_sample_tst
+!i10b 1
+Z22 !s100 YeRYF=D_8Z91]OmaGk0;60
+Z23 I4d8e^iGjEOVML9WC9S=6e2
+Z24 V:37GMh]F0C0egY`:=T1dM1
+R4
+R16
+R17
+R18
+L0 29
+R8
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R10
+vmy_package_vlg_vec_tst
+!i10b 1
+!s100 6i=8hgSC2ZOH>]6d]0@2[0
+IB[bQghKIU[?L]YATf8lCf2
+Z25 V4SK=HPmeMFS>Ao9>:bA4A3
+R4
+R16
+R17
+R18
+Z26 L0 6200
+R8
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R10
